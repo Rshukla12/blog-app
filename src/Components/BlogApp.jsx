@@ -37,7 +37,10 @@ const BlogApp = () => {
 
     return (
         <div className={styles.root}>
-            <SearchBar setQuery={setQuery} />
+            <div className={styles.searchBar}>
+                <h2>Blog App</h2>
+                <SearchBar setQuery={setQuery} />
+            </div>
             {
                 isLoading ? (
                     <LoadingIndicator />
@@ -48,16 +51,21 @@ const BlogApp = () => {
                     <div className={styles.body} >
                         <div className={styles.blog} >
                             {
-                                blogs
-                                    .filter((_, index) => index >= ( page - 1 ) * 10 && index < page * 10)
-                                    .map(blog => (
-                                        <BlogCard
-                                            key={blog.id}
-                                            title={blog.title}
-                                            userId={blog.userId}
-                                            body={blog.body}
-                                        />
-                                    ))
+                                blogs.length !== 0 ? (
+                                    blogs
+                                        .filter((_, index) => index >= ( page - 1 ) * 10 && index < page * 10)
+                                        .map(blog => (
+                                            <BlogCard
+                                                key={blog.id}
+                                                title={blog.title}
+                                                userId={blog.userId}
+                                                body={blog.body}
+                                            />
+                                        ))
+                                ) : (
+                                    <h2>Sorry, No blogs conatains {query}, try {query.length > 1 ? query.slice(0, query.length-1) : "quasi"}</h2>
+                                )
+
                             }
                         </div>
                         <Pagination

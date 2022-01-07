@@ -1,9 +1,7 @@
 .root {
-
-}
-
-.navbar {
-
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .error {
@@ -18,4 +16,9 @@
     gap: 1.5rem;
     width: 90%;
     margin: auto;
+}
+
+.searchBar {
+    width: 100%;
+    background-color: #f3f3f3;
 }

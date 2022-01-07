@@ -3,11 +3,14 @@
     max-width: 40rem;
     margin: 1rem auto;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3%
 }
 
 .pageBtn, .currPage {
     padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
     border: 1px solid gray;
     cursor: pointer;
 }
