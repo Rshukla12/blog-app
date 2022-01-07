@@ -8,8 +8,8 @@ const BlogCard = ({
     return (
         <div className={styles.root}>
             <div className={styles.heading}>
-                <h3>{title}</h3>
-                <h5>By - {userId}</h5>
+                <h3 className={styles.title}>{title}</h3>
+                <h5 >By - {userId}</h5>
             </div>
             <p>{body}</p>
         </div>
