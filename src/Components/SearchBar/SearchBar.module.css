@@ -1,0 +1,18 @@
+.root {
+    width: 45%;
+    max-width: 30rem;
+    min-width: 20rem;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: auto;
+    padding: 0.3rem 0.5rem 0.4rem;
+}
+
+.input {
+    border: none;
+    outline: 0;
+    width: 96%;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+}

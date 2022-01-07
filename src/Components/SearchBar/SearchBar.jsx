@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./SearchBar.module.css";
 import useDebouncer from "../../utils/useDebouncer";
 
 const SearchBar = ({
@@ -19,9 +20,14 @@ const SearchBar = ({
     };
 
     return (
-        <div>
-            <input type="text"  value={q} onChange={handleChange} />
-            <div onClick={handleClear}>X</div>
+        <div className={styles.root}>
+            <input 
+                className={styles.input} 
+                type="text" value={q} 
+                onChange={handleChange} 
+                placeholder="Type to search" 
+            />
+            { q && <div className={styles.close} onClick={handleClear}>X</div> }
         </div>
     )
 };
