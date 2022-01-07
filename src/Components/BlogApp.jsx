@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCard from "./BlogCard/BlogCard";
 import Pagination from "./Pagination/Pagination";
+import SearchBar from "./SearchBar/SearchBar";
 
 const BlogApp = () => {
     const [isLoading, setIsLoading] = React.useState(true);
@@ -17,7 +18,6 @@ const BlogApp = () => {
             let data = await fetch(url);
             data = await data.json();
             setBlogs(data);
-            console.log(data);
         } catch (error) {
             console.log(error);
             setIsError(true);
@@ -32,6 +32,7 @@ const BlogApp = () => {
 
     return (
         <div className="App">
+            <SearchBar setQuery={setQuery} />
             {
                 isLoading ? (
                     <div>...loading</div>
@@ -40,11 +41,10 @@ const BlogApp = () => {
                 ) : (
                     // handle pagination using filter
                     <div>
-                        
                         <div>
                             {
                                 blogs
-                                    .filter((_, index) => index >= page - 1 * 10 && index < page * 10)
+                                    .filter((_, index) => index >= ( page - 1 ) * 10 && index < page * 10)
                                     .map(blog => (
                                         <BlogCard
                                             key={blog.id}
@@ -55,6 +55,11 @@ const BlogApp = () => {
                                     ))
                             }
                         </div>
+                        <Pagination
+                            totalPage={10}
+                            currPage={page}
+                            onPageChange={(page)=>setPage(page)}
+                        />
                     </div>
                 )
             }
