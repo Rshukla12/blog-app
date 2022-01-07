@@ -1,3 +1,5 @@
+import styles from "./Pagination.module.css";
+
 const Pagination = ({
     totalPage = 10,
     currPage,
@@ -6,18 +8,18 @@ const Pagination = ({
     const pages = new Array(totalPage).fill(0).map( (_, ind) => ind + 1 );
     
     const handlePageChange = (page) => {
-        if ( page === currPage ) return; 
-        console.log(page)
+        if ( page === currPage ) return;
         onPageChange( page );
     };
     
     return (
-        <div>
+        <div className={styles.root}>
             {
                 pages.map( page => (
-                    <div 
+                    <div
                         key={page*1021} 
                         onClick={()=>handlePageChange(page)}
+                        className={ page===currPage ? styles.currPage : styles.pageBtn }
                     >
                         {page}
                     </div>

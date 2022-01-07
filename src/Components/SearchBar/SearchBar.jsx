@@ -21,6 +21,11 @@ const SearchBar = ({
 
     return (
         <div className={styles.root}>
+            <img 
+                className={styles.searchIcon} 
+                src="https://cdn-icons-png.flaticon.com/512/149/149852.png" 
+                alt="searchIcon" 
+            />
             <input 
                 className={styles.input} 
                 type="text" value={q} 
