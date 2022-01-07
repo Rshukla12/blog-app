@@ -1,0 +1,21 @@
+.root {
+
+}
+
+.navbar {
+
+}
+
+.error {
+    background-color: red;
+    width: 20rem;
+    height: 20rem;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 90%;
+    margin: auto;
+}
